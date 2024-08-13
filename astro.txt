@@ -1,0 +1,33 @@
+知りたいこと
+
+●AstroかReactか
+個人的には需要のあるReactでサイトを作成したいが、
+個人的にサイトを作成するうえで、どうしてもReactで作成するメリットは感じない。
+Astroだけで十分だと思う。
+
+
+
+Astroでサイトを作成する
+
+①Astroの開発環境を構築
+typescript
+tailwindcss
+ESLint
+Pritter
+VSCodeを設定
+Astroに必要なフォルダ構成
+
+
+②Astroの使い方
+各ページによってheadの中身を変更
+imgの出力
+ページネーションの実装
+JavaScriptの書き方-書き方に違いがでるのか
+
+③ビルドしてアップロード先はレンタルサーバーか否か
+
+
+"dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"

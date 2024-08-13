@@ -1,0 +1,140 @@
+{
+  "$schema": "https://biomejs.dev/schemas/1.8.3/schema.json",
+  "files": { "ignoreUnknown": true }, // 処理できないファイルに遭遇した場合、検出するか
+  "organizeImports": {
+    "enabled": true // importのソートをする
+  },
+
+  "formatter": {
+    "enabled": true,
+    "formatWithErrors": false, // ファイルでエラーがある時フォーマットをしない
+    "ignore": [],
+    "indentWidth": 2,
+    //"indentStyle": "space",
+    "lineWidth": 120
+  },
+  "javascript": {
+    "globals": ["Astro"],
+    "formatter": {
+      "quoteStyle": "single", // 引用符のスタイル
+      "jsxQuoteStyle": "single", // JSXの引用符のスタイル
+      "trailingCommas": "all", // 末尾のオブジェクトにカンマを付ける
+      "semicolons": "asNeeded", // セミコロンを必要に応じて付ける
+      "arrowParentheses": "asNeeded" // 関数のPropsが一つなら()で括らない
+    }
+  },
+  "json": {
+    "parser": { "allowComments": true }, // コメントを許可
+    "formatter": {
+      "enabled": true,
+      //"indentStyle": "space",
+      "indentWidth": 2,
+      "lineWidth": 120
+    }
+  },
+  "linter": {
+    "ignore": [],
+    "rules": {
+      "a11y": {
+        "noAriaUnsupportedElements": "error", // ARIAの役割、状態、およびプロパティをサポートしない要素には、これらの属性がないことを強制
+        "noBlankTarget": "error", // target="_blank"を使う時、rel=“noreferrer”を強制
+        "noDistractingElements": "error", // 存在しない要素でエラー
+        "noNoninteractiveElementToInteractiveRole": "error", // インタラクティブなARIAロールが非インタラクティブHTML要素に割り当てられないように
+        "noPositiveTabindex": "error", // tabIndexで整数使うとエラー
+        "noRedundantAlt": "error", // 暗黙的なロールでのroleの使用でエラー
+        "useAltText": "error", // alt必要な要素で強制
+        "useAriaPropsForRole": "error", // ARIAロールで必須のARIA属性を強制
+        "useHtmlLang": "error", // HTMLのlangを使う
+        "useIframeTitle": "error", // iframeでtitleを強制
+        "useMediaCaption": "error", // audio, video要素で、track要素を強制
+        "useValidAnchor": "error", // すべてのアンカーが有効である
+        "useValidAriaProps": "error", // 正しいaria-*を使う
+        "useValidAriaValues": "error", // 正しいARIAを使う
+        "useValidLang": "error" // lang属性で正しい言語・国を使う
+      },
+      "complexity": {
+        "noBannedTypes": "warn", // 誤解を招く型でエラー
+        "noExtraBooleanCast": "error", // 無駄なBooleanでエラー
+        "noForEach": "warn", // forEachでエラー。for ofを使う
+        "noMultipleSpacesInRegularExpressionLiterals": "error", // 正規表現の連続スペースでエラー
+        "noStaticOnlyClass": "error", // staticだけのclassでエラー
+        "noUselessConstructor": "error", // 無駄なconstructorでエラー
+        "noUselessRename": "error", // 無駄な as でエラー
+        "noUselessSwitchCase": "error", // 無駄なswitchのcaseでエラー
+        "useLiteralKeys": "error", // オブジェクトで、 a[b]ではなく、a.bを使う
+        "useOptionalChain": "error", // オプショナルチェーンを使うようにする
+        "useSimplifiedLogicExpression": "error" // 無駄な論理式でエラー出す 例） const bool =  true || foo
+      },
+      "correctness": {
+        "noChildrenProp": "error", // コンポーネントのchildrenをPropsで渡すとエラー
+        "noConstAssign": "error", // constを再代入でエラー
+        "noConstantCondition": "error", // 条件式の中身が定数でエラー（確定するから）
+        "noEmptyPattern": "error", // 空のオブジェクトを禁止 const {} = a, const {a: {}} = foo
+        "noPrecisionLoss": "error", // 桁数の多すぎる数字でエラー（制度が落ちる）
+        "noRenderReturnValue": "error", // ReactDOM.renderの代入を許可しない const foo = ReactDOM.render()
+        "noSelfAssign": "error", // a = aを許可しない
+        "noSetterReturn": "error", // classのsetメソッドが値を直接返すのを禁止
+        "noStringCaseMismatch": "error", // 違う文字のCaseとの比較でエラー 例）toUpperCaseした文字と、そうでない文字との比較
+        "noUnnecessaryContinue": "error", // ループ文の最初でcontinueするとエラー
+        "noUnreachable": "error", // 到達不可能なコードでエラー
+        "noInvalidConstructorSuper": "error", // extendsしてたらconstructorでsuperを強制
+        "noUnsafeOptionalChaining": "error", // 安全でないオプショナルチェーンでエラー
+        "noUnusedVariables": "warn", // 未使用の変数でエラー
+        "noVoidElementsWithChildren": "error", // childrenの無い要素に入れるとエラー
+        "noVoidTypeReturn": "error", // 返り値がvoid型の関数が、returnするとエラー
+        "useIsNan": "error", // NaNを比較するとエラー
+        "useValidForDirection": "error" // forループで、終了しない条件だとエラー
+      },
+      "performance": {
+        "noDelete": "error" // delete演算子使うとエラー
+      },
+      "security": {
+        "noDangerouslySetInnerHtml": "warn" // dangerouslySetInnerHTML禁止
+      },
+      "style": {
+        "noArguments": "error", // 定義してない変数使うとエラー
+        "noNegationElse": "warn", // 条件で!fooのように書いてelseがあるとエラー
+        "noNonNullAssertion": "warn", // foo!.varの書き方でエラー
+        "noParameterAssign": "error", // 関数の引数を関数内で更新するとエラー
+        "noUnusedTemplateLiteral": "error", // 普通の文字列でテンプレート文字列使うとエラー
+        "noVar": "error", // var使うとエラー
+        "useConst": "error", // letで再代入されないお変数はエラー、constにする
+        "useExponentiationOperator": "error", // 階乗でMath.pow使うとエラー、**に置換
+        "useNamingConvention": "off", // snakeCaseでエラー、optionで変えられる
+        "useSelfClosingElements": "error", // <div></div>のように子供の無い要素でエラー、<div/>に置換
+        "useShorthandArrayType": "error", // 型でArray使うとエラー、[]に置換
+        "useTemplate": "error" // 文字の足し算は全てテンプレート文字列にする
+      },
+      "suspicious": {
+        "noArrayIndexKey": "error", // JSXのmapでkeyにindexを渡すとエラー
+        "noAssignInExpressions": "error", // 条件式に中で再代入するとエラー
+        "noAsyncPromiseExecutor": "error", // new Promise()の中でasync関数使用するとエラー
+        "noCatchAssign": "error", // catch(e)のeに再代入するとエラー
+        "noClassAssign": "error", // classに再代入するとエラー
+        "noCommentText": "error", // JSX内の正しくないコメントでエラー <div>// a</div> => <div>{/* a */}</div>
+        "noCompareNegZero": "error", // -0と比較するとエラー
+        "noConsoleLog": "warn", // console.logでエラー
+        "noDoubleEquals": "error", // 比較で==を禁止、===にする
+        "noDuplicateCase": "error", // switchの重複するcaseでエラー
+        "noDuplicateClassMembers": "error", // classの重複するメソッドでエラー
+        "noDuplicateJsxProps": "error", // コンポーネントの重複するPropsでエラー
+        "noDuplicateObjectKeys": "error", // 重複するオブジェクトのkeyでエラー
+        "noDuplicateParameters": "error", // 関数の重複するparamsでエラー
+        "noEmptyInterface": "error", // 空のinterfaceの定義でエラー
+        "noExplicitAny": "warn", // anyの仕様を禁止
+        "noExtraNonNullAssertion": "error", // 間違った非nullアサーションでエラー
+        "noFunctionAssign": "error", // functionの再代入するとエラー
+        "noImportAssign": "error", // importで使う値を再代入するとエラー
+        "noPrototypeBuiltins": "error", // エラーの恐れのあるオブジェクトのプロパティでエラー 例 propertyIsEnumerable, isPrototypeOf
+        "noRedeclare": "error", // 同じ名前の宣言でエラー
+        "noRedundantUseStrict": "error", // use strictが同じファイルで重複するとエラー
+        "noSelfCompare": "error", // 同じ値の比較でエラー
+        "noShadowRestrictedNames": "error", // 予約語で命名するとエラー
+        "noUnsafeDeclarationMerging": "error", // 同じ名前のclassとinterfaceを定義するとエラー
+        "useDefaultSwitchClauseLast": "error", // switchでdefaultが最後でないとエラー
+        "useGetterReturn": "error", // classのgetメソッドでreturnをしないとエラー
+        "useValidTypeof": "error" // typeofで比較する値が正しくないとエラー
+      }
+    }
+  }
+}
