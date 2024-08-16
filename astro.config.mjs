@@ -1,8 +1,8 @@
-import { defineConfig } from "astro/config";
-import sitemap from "@astrojs/sitemap";
-import tailwind from "@astrojs/tailwind";
-import relativeLinks from "astro-relative-links";
-import compress from "astro-compress";
+import { defineConfig } from 'astro/config';
+import sitemap from '@astrojs/sitemap';
+import tailwind from '@astrojs/tailwind';
+import relativeLinks from 'astro-relative-links';
+import compress from 'astro-compress';
 
 // https://astro.build/config
 //参考 https://x.gd/M8u7R
@@ -11,7 +11,7 @@ export default defineConfig({
     // 他の端末からローカルサーバを確認させせたいので、hostをtrueにする
     host: true,
     // 開発サーバーが立ち上がったらブラウザを自動で開かせる
-    open: true
+    open: true,
   },
   integrations: [
     sitemap(),
@@ -22,12 +22,12 @@ export default defineConfig({
       svg: true,
       png: true,
       jpeg: true,
-      jpg: true
+      jpg: true,
     }),
-    relativeLinks()
+    relativeLinks(),
   ],
   build: {
-    assets: "assets/js"
+    assets: 'assets/js',
   },
   vite: {
     build: {
@@ -36,18 +36,18 @@ export default defineConfig({
       rollupOptions: {
         output: {
           assetFileNames: (assetInfo) => {
-            let extType = assetInfo.name.split(".").at(-1);
+            let extType = assetInfo.name.split('.').at(-1);
             if (/png|jpe?g|svg|gif|tiff|bmp|ico/i.test(extType)) {
-              extType = "images";
+              extType = 'images';
             }
             if (/css|scss/i.test(extType)) {
-              extType = "styles";
+              extType = 'styles';
             }
             return `assets/${extType}/[hash][extname]`;
           },
-          entryFileNames: "assets/js/[hash].js"
-        }
-      }
-    }
-  }
+          entryFileNames: 'assets/js/[hash].js',
+        },
+      },
+    },
+  },
 });
