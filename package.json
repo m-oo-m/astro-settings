@@ -9,6 +9,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "lint": "eslint 'src/**/*.{astro,js,jsx,ts,tsx}' --quiet",
+    "lint-f": "eslint 'src/**/*.{astro,js,jsx,ts,tsx}' --format stylish",
     "lint:fix": "eslint 'src/**/*.{astro,js,jsx,ts,tsx}' --quiet --fix",
     "format": "prettier 'src/**/*.{astro,js,jsx,ts,tsx,json,css,scss,md}' --write",
     "validate": "npm run lint && npm run format"

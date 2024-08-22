@@ -16,23 +16,28 @@ export default defineConfig({
   integrations: [
     sitemap(),
     tailwind(),
-    relativeLinks(), // 相対リンクに対応
-    compress({
-      html: true,
-      svg: true,
-      png: true,
-      jpeg: true,
-      jpg: true,
-    }),
     relativeLinks(),
+    compress({
+      // css: {
+      //   errorOnInvalidEntries: false,
+      // },
+      // html: true,
+      CSS: false,
+      HTML: false,
+      SVG: true,
+      PNG: true,
+      JPEG: true,
+      JPEG: true,
+    }),
   ],
   build: {
     assets: 'assets/js',
   },
   vite: {
     build: {
+      //cssMinify: true, // CSSの圧縮
       // minifyを有効にする場合はtrueにする
-      minify: false,
+      minify: true,
       rollupOptions: {
         output: {
           assetFileNames: (assetInfo) => {
