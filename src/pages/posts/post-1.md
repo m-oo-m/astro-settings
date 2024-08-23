@@ -5,7 +5,7 @@ pubDate: 2022-07-01
 description: 'これは私の新しいAstroブログの最初の記事です。'
 author: 'Astro学習者'
 image:
-    url: '/assets/images/woman.jpg'
+    url: '/src/assets/images/woman.jpg'
     alt: 'Astroのロゴ。'
 tags: ["astro", "ブログ", "公開学習"]
 ---

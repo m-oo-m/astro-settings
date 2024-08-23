@@ -4,8 +4,9 @@ import tailwind from '@astrojs/tailwind';
 import relativeLinks from 'astro-relative-links';
 import compress from 'astro-compress';
 
-// https://astro.build/config
 //参考 https://x.gd/M8u7R
+
+// https://astro.build/config
 export default defineConfig({
   server: {
     // 他の端末からローカルサーバを確認させせたいので、hostをtrueにする
@@ -17,17 +18,21 @@ export default defineConfig({
     sitemap(),
     tailwind(),
     relativeLinks(),
+    // (await import('@playform/compress')).default({
+    //   CSS: false,
+    //   HTML: false,
+    //   JavaScript: false,
+    //   Image: true,
+    //   SVG: true,
+    // }),
     compress({
-      // css: {
-      //   errorOnInvalidEntries: false,
-      // },
-      // html: true,
-      CSS: false,
       HTML: false,
+      CSS: false,
       SVG: true,
-      PNG: true,
-      JPEG: true,
-      JPEG: true,
+      // PNG: true,
+      // JPEG: true,
+      // JPG: true,
+      Image: false,
     }),
   ],
   build: {

@@ -1,5 +1,7 @@
 ---
 const { frontmatter } = Astro.props;
+import { Image } from 'astro:assets';
+import woman from '../assets/images/woman.jpg';
 ---
 
 <h1>{frontmatter.title}</h1>
@@ -7,4 +9,6 @@ const { frontmatter } = Astro.props;
 <p><em>{frontmatter.description}</em></p>
 <p>著者: {frontmatter.author}</p>
 <img src={frontmatter.image.url} width="300" alt={frontmatter.image.alt} />
+<Image src={frontmatter.image.url} width="300" height="300" alt="画像の説明。" />
+<Image src={woman} alt="画像の説明。" />
 <slot />
