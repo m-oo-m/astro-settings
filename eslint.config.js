@@ -100,6 +100,7 @@ export default [
       'default-case-last': 'error', // switch文でのdefaultケースを最後に配置することを強制
       'getter-return': 'error', // getterでの値の返却を強制
       'valid-typeof': 'error', // typeof演算子との比較に有効な文字列の使用を強制
+      //'@typescript-eslint/no-explicit-any': 'warn',
     },
   },
   {
